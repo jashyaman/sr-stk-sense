@@ -31,12 +31,10 @@ public class DefaultController {
 	}
 	
 	@RequestMapping( path="/apidocs")
-	public ModelAndView indexResponse() {
+	public ModelAndView apiResponse() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("apidocs");
-		
 		return  mav;
-		
 	}
 
 }
