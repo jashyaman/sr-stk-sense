@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DefaultController {
@@ -17,6 +18,15 @@ public class DefaultController {
 		map.put("status", "good");
 		
 		return  new ResponseEntity<Map<String,String>>(map, HttpStatus.OK);
+		
+	}
+	
+	@RequestMapping( path="/index")
+	public ModelAndView indexResponse() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		
+		return  mav;
 		
 	}
 
