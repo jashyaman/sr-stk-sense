@@ -46,7 +46,7 @@ public class DispatcherConfig extends WebMvcConfigurerAdapter{
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setPrefix("/WEB-INF/views/html");
 		viewResolver.setSuffix(".html");
-		return viewResolver();
+		return viewResolver;
 	}
 	
 
