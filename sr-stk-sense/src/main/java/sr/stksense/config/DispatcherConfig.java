@@ -11,6 +11,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -33,14 +34,16 @@ public class DispatcherConfig extends WebMvcConfigurerAdapter{
 
 	@Override
 	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-		// TODO Auto-generated method stub
 		converters.add(jsonConvertor());
 		super.configureMessageConverters(converters);
 	}
 	
-	
-	
-	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**")
+		.addResourceLocations("/static/");
+	}
+
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -48,8 +51,5 @@ public class DispatcherConfig extends WebMvcConfigurerAdapter{
 		viewResolver.setSuffix(".html");
 		return viewResolver;
 	}
-	
-
-	
 	
 }
