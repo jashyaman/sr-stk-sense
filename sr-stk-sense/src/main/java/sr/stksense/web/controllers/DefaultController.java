@@ -29,5 +29,14 @@ public class DefaultController {
 		return  mav;
 		
 	}
+	
+	@RequestMapping( path="/apidocs")
+	public ModelAndView indexResponse() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("apidocs");
+		
+		return  mav;
+		
+	}
 
 }
