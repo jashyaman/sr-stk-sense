@@ -16,6 +16,7 @@ var clientsecret="46ecef29129c4543a2a8dd0ca497b734";
 $.ajax({
 	url: apiurl,
 	 method: "POST",
+	 crossDomain: true,
 	  data: "grant_type=client_credentials",
 	 beforeSend: function (xhr) {
         xhr.setRequestHeader("Authorization", "Basic " + authHeader);
